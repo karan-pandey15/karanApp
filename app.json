@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "LoginTestApp",
+    "slug": "LoginTestApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/AddRupee.png",
+      "resizeMode": "cover",
+      "backgroundColor": "rgb(3,110,140)"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#rgb(3,110,140)"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
+
+
+
+
+

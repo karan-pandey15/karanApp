@@ -11,6 +11,7 @@ import Home from "./ScreenApp/Home";
 import Employee from "./ScreenApp/cardPages/Employee";
 import Customer from "./ScreenApp/cardPages/Customer";
 import Partner from "./ScreenApp/cardPages/Partner";
+import Menu from "./ScreenApp/Menu";
 
 // import { Login, Register, Verification } from "./screens";
 // import {Phoneregister, Register,Verification ,Auth} from "./ScreenApp";
@@ -83,6 +84,14 @@ export default function App() {
           headerShown: false
         }}
       />
+
+      <Stack.Screen
+      name="Menu"
+      component={Menu}
+      options={{
+        headerShown: false
+      }}
+    />
     
           <Stack.Screen
             name="Home"

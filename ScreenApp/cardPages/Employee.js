@@ -1,7 +1,7 @@
 
 
 
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet ,TextInput  } from 'react-native'
 import React, { useState, useReducer, useEffect, useCallback } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -11,6 +11,7 @@ import { StatusBar } from 'expo-status-bar'
 import { FONTS, COLORS, SIZES } from '../../constants'
 import Input from '../../components/Input'
 import { validateInput } from '../../utils/actions/formActions'
+import axios from 'axios';
 
 
 // import { reducer } from '../utils/reducers/formReducers'
@@ -36,6 +37,35 @@ const initialState = {
   formIsValid: false,
 }
 const Employee = ({ navigation }) => {
+
+  const {navigate} = navigation;
+
+  const [fname,setFname] = useState('');
+  const [mname,setMname] = useState('');
+  const [pan,setPan] = useState('');
+  const [password,setPassword] = useState('');
+  
+
+
+  // const handleFormSubmit = () => {
+  //   // axios.post('https://5688-2401-4900-1c5b-6a4c-7051-b9e9-f3ef-420.ngrok-free.app/empdata', {fname, mname, pan, password })
+  //   //   .then((response) => {
+  //   //     console.log(response.data);
+  //       navigate('Edetails')
+  //       // Handle success or navigation to the next screen
+  //     // })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       // Handle error
+  //     });
+  // };
+
+  
+  const handleFormSubmit = () => {
+        navigate('Edetails')
+      
+  };
+
   const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [formState, dispatchFormState] = useReducer(reducer, initialState)
@@ -69,58 +99,39 @@ const Employee = ({ navigation }) => {
           animation="fadeInUpBig"
           style={styles.footer}>
           <KeyboardAwareScrollView>
-            <Text style={styles.inputHeader}>Name</Text>
-            <Input
-              id="fullName"
-              onInputChanged={inputChangedHandler}
-              errorText={formState.inputValidities['fullName']}
-              placeholder=""
-              placeholderTextColor={COLORS.black}
-            />
+         
             <Text style={styles.inputHeader}>Father Name</Text>
-            <Input
-              id="fullName"
-              placeholder=""
-              onInputChanged={inputChangedHandler}
-              errorText={formState.inputValidities['fullName']}
-              placeholderTextColor={COLORS.black}
-            />
+            <TextInput
+            style={styles.input}
+            value={fname}
+            onChangeText={(text) => setFname(text)}
+          />
 
             
             <Text style={styles.inputHeader}>Mother Name</Text>
-            <Input
-            id="fullName"
-            placeholder=""
-            onInputChanged={inputChangedHandler}
-            errorText={formState.inputValidities['fullName']}
-            placeholderTextColor={COLORS.black}
-          />
-
-          
+            <TextInput
+            style={styles.input}
+            value={mname}
+            onChangeText={(text) => setMname(text)}
+          />          
           <Text style={styles.inputHeader}>Pan Number</Text>
-          <Input
-          id="fullName"
-          placeholder=""
-          onInputChanged={inputChangedHandler}
-          errorText={formState.inputValidities['fullName']}
-          placeholderTextColor={COLORS.black}
-        />
+          <TextInput
+          style={styles.input}
+          value={pan}
+          onChangeText={(text) => setPan(text)}
+        />        
         
         <Text style={styles.inputHeader}>Create Password</Text>
-        <Input
-        id="fullName"
-        placeholder="create your password"
-        onInputChanged={inputChangedHandler}
-        errorText={formState.inputValidities['fullName']}
-        placeholderTextColor={COLORS.black}
-      />
-            
-            
-            <Button
-              title="Submit"
-              isLoading={isLoading}
-              onPress={() => navigation.navigate('Menu')}
-            />
+        <TextInput
+        style={styles.input}
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+      />        
+      <Button
+      title="SIGN UP"
+      isLoading={isLoading}
+      onPress={handleFormSubmit}
+    />
           </KeyboardAwareScrollView>
         </Animatable.View>
       </LinearGradient>
@@ -129,6 +140,15 @@ const Employee = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+  input:{
+    
+    width: 400, // Set the width of the TextInput
+    height: 40,  // Set the height of the TextInput
+    borderColor: 'gray',  // Border color
+    borderWidth: 1,       // Border width
+    borderRadius: 5,     // Border radius (optional)
+    paddingHorizontal: 10, // Horizontal padding (optional)
+  },
   header: {
     flex: 1,
     justifyContent: 'center',

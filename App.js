@@ -12,6 +12,8 @@ import Employee from "./ScreenApp/cardPages/Employee";
 import Customer from "./ScreenApp/cardPages/Customer";
 import Partner from "./ScreenApp/cardPages/Partner";
 import Menu from "./ScreenApp/Menu";
+import Edetails from "./ScreenApp/cardPages/Edetails";
+import Data from "./ScreenApp/Data";
 
 // import { Login, Register, Verification } from "./screens";
 // import {Phoneregister, Register,Verification ,Auth} from "./ScreenApp";
@@ -100,6 +102,21 @@ export default function App() {
               headerShown: false
             }}
           />
+        
+          <Stack.Screen
+          name="Edetails"
+          component={Edetails}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+        name="Data"
+        component={Data}
+        options={{
+          headerShown: false
+        }}
+      />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

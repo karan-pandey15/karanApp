@@ -6,7 +6,7 @@ import Auth from './Auth';
 const data = [
   {
     id: '1',
-    imageSource: require('../assets/cu.png'), // Replace with your image sources
+    imageSource: require('../assets/cu.png'),
     text: 'Started as Customer',
     gonext:''
 

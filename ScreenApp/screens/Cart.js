@@ -10,28 +10,26 @@ import {
 
 const jsonData = [
   { image: require("../../assets/card.png"), text: "Credit Card" },
-  { image:require("../../assets/hh.png"), text: "L&T Personal Loan" },
 ];
-let loanImg = require("../../assets/hh.png")
-let cardImg = require("../../assets/card.png")
-const Home = ({ navigation }) => {
+
+const Loan = ({ navigation }) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity
-    style={styles.card}
-    onPress={() => navigation.navigate("Loan")}
-  >
-    <Image source={loanImg} style={styles.image} />
-    <Text style={styles.text}>Loan</Text>
-  </TouchableOpacity>
+      <FlatList
+        data={jsonData}
+        numColumns={2}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.card}
+            // onPress={() => navigation.navigate("Register")}
+          >
+            <Image source={item.image} style={styles.image} />
 
-  <TouchableOpacity
-  style={styles.card}
-  onPress={() => navigation.navigate("Cart")}
->
-  <Image source={cardImg} style={styles.image} />
-  <Text style={styles.text}>Credit Cart</Text>
-</TouchableOpacity>
+            <Text style={styles.text}>{item.text}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 };
@@ -41,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 80, // Margin from the top
     justifyContent: "center",
-    alignItems:"center"
+    alignItems: "center",
   },
   card: {
     width: 150,
@@ -62,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Loan;

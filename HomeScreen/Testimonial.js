@@ -17,7 +17,7 @@ const Testimonial = ({ imageSource, name, position, pan }) => {
           <Text style={styles.info}>{position}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.label}>PAN:</Text>
+          <Text style={styles.label}>PAN:</Text> 
           <Text style={styles.info}>{pan}</Text>
         </View>
       </View>

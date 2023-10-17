@@ -1,13 +1,13 @@
 import Home from "./Home"
-import Portfolio  from "./Portfolio"
+import Cart from './Cart';
 import Settings from "./Settings"
-import Prices from "./Prices"
-import Transaction from "./Transaction"
+import Loan from "./Loan"
+import Addlead from "./Addlead"
 
 export {
     Home,
-    Portfolio,
+    Cart,
     Settings,
-    Prices,
-    Transaction
+    Loan,
+    Addlead
 }

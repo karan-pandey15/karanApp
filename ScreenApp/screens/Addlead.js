@@ -127,7 +127,7 @@ import Button from "../../components/Button";
 import axios from "axios";
 
 const Addlead = ({navigation}) => {
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
   const { navigate } = navigation;
 
   const [panName,setPan] = useState('');
@@ -146,18 +146,22 @@ const Addlead = ({navigation}) => {
   const [selectedOption, setSelectedOption] = useState("");
   const dropdownOptions = ["Personal Loan-PL", "Business Loan-BL", "Home Loan-HL", "LAP Loan", "Auto Loan-AL","Education Loan",'Over Draft-OD'];
 
-  const handleFormSubmit = () => {
-    axios.post('https://554a-2401-4900-1c5b-6a4c-407c-39de-5869-153e.ngrok-free.app/addleaddata', {panName , Fname, Mname, mobile,personalEmail , panNo  , location  ,companyName ,dob,relegion,gender})
-      .then((response) => {
-        console.log(response.data);
-        navigate('Form')
-        // Handle success or navigation to the next screen
-      })
-      .catch((error) => {
-        console.error(error);
-        // Handle error
-      });
-  };
+  // const handleFormSubmit = () => {
+  //   axios.post('https://d47b-2401-4900-1c5c-1de7-e40c-117c-e72d-b78f.ngrok-free.app/addleaddata', {panName , Fname, Mname, mobile,personalEmail , panNo  , location  ,companyName ,dob,relegion,gender})
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       navigate('Addmoredetails')
+
+  //       // Handle success or navigation to the next screen
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       // Handle error
+  //     });
+  // };
+  const handleFormSubmit =()=>{
+    navigate('Addmoredetails');
+  }
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);

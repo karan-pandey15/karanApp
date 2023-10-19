@@ -90,7 +90,7 @@ const Register = ({ navigation }) => {
   const [email, setEmail] = useState("");
 
   // const handleFormSubmit = () => {
-  //   axios.post('https://5688-2401-4900-1c5b-6a4c-7051-b9e9-f3ef-420.ngrok-free.app/submit', {name, email })
+  //   axios.post('https://d47b-2401-4900-1c5c-1de7-e40c-117c-e72d-b78f.ngrok-free.app/submit', {name, email })
   //     .then((response) => {
   //       console.log(response.data);
   //       navigate('Home')
@@ -102,9 +102,6 @@ const Register = ({ navigation }) => {
   //     });
   // };
 
-  const handleFormSubmit = () => {
-    navigate("Home");
-  };
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [formState, dispatchFormState] = useReducer(reducer, initialState);
@@ -158,8 +155,8 @@ const Register = ({ navigation }) => {
             <Button
               title="SIGN UP"
               isLoading={isLoading}
-              // onPress={() => navigation.navigate('Home')}
-              onPress={handleFormSubmit}
+              onPress={() => navigation.navigate('Home')}
+              // onPress={handleFormSubmit}
             />
           </KeyboardAwareScrollView>
         </Animatable.View>

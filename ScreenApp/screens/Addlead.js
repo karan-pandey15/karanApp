@@ -124,7 +124,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import COLORS from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import Button from "../../components/Button";
-import axios from "axios";
+// import axios from "axios";
 
 const Addlead = ({navigation}) => {
   // const [isChecked, setIsChecked] = useState(false);

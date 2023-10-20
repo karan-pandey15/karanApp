@@ -1,4 +1,4 @@
-import { EmployeeData, EmployeeFormdata, employeeFormAllData, userGet } from "../Controllers/EmployeeController.js";
+import { AddleadsAlldata, EmployeeData, EmployeeFormdata, employeeFormAllData, userGet } from "../Controllers/EmployeeController.js";
 import express from "express";
 const router = express.Router();
 
@@ -15,4 +15,5 @@ const router = express.Router();
 // Define the API endpoint for adding data
 router.post('/addData', employeeFormAllData);
 
+router.get('/getalldata',AddleadsAlldata);
 export default router;

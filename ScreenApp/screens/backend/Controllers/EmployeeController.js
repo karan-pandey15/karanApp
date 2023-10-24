@@ -1,4 +1,6 @@
 import db from "../database/db.js";
+import express from "express";
+const app = express();
 
 // ************* Fetching data on navbar *************
 export const userGet = (req, res) => {
@@ -110,5 +112,28 @@ export const AddleadsAlldata = (req, res) => {
       return;
     }
     res.json(results);
+  });
+};
+
+
+
+// ***********   Delete user with id   *************** 
+
+export const DeleteLeadById = (req, res) => {
+  const leadId = req.params.id; // Get the lead ID from the URL parameter
+
+  // Make a database query to delete the lead record
+  db.query("DELETE FROM getformalldata WHERE id = ?", [leadId], (err, results) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+
+    // Check if any record was deleted
+    if (results.affectedRows === 0) {
+      res.status(404).json({ error: "Lead not found" });
+    } else {
+      res.json({ message: "Lead deleted successfully" });
+    }
   });
 };

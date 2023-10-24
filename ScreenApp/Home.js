@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList ,Image,StyleSheet} from 'react-native';
 import Auth from './Auth';
 
 const data = [
@@ -27,6 +27,8 @@ const data = [
   },
 ];
 
+
+
 export default function Home({navigation}) {
 
     const { navigate } = navigation;
@@ -36,6 +38,12 @@ export default function Home({navigation}) {
     // <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}> 
         
     <View style={{ flex: 1, backgroundColor: '#036E8C' }}>
+   <View style={styles.imageContainer} >
+   <Image
+   source={require('../assets/icons/user-removebg-preview.png')} // Use the path to your image
+   style={{ width: 90, height: 90, marginTop:20,marginBottom:20}} // Set the desired width and height
+ />
+   </View>
       <FlatList
       data={data}
     //   numColumns={1} // Display two cards per row
@@ -52,3 +60,14 @@ export default function Home({navigation}) {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    imageContainer:{
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      paddingHorizontal: 20,
+      paddingTop: 40,
+      backgroundColor: "rgb(3,110,140)",
+    }
+});

@@ -22,6 +22,7 @@ const Loan = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.card}
+            onPress={() => navigation.navigate('BlankPage')}
             // onPress={() => navigation.navigate("Register")}
           >
             <Image source={item.image} style={styles.image} />

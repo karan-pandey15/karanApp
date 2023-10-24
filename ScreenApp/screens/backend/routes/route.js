@@ -1,4 +1,4 @@
-import { AddleadsAlldata, EmployeeData, EmployeeFormdata, employeeFormAllData, userGet } from "../Controllers/EmployeeController.js";
+import { AddleadsAlldata, DeleteLeadById, EmployeeData, EmployeeFormdata, employeeFormAllData, userGet } from "../Controllers/EmployeeController.js";
 import express from "express";
 const router = express.Router();
 
@@ -16,4 +16,6 @@ const router = express.Router();
 router.post('/addData', employeeFormAllData);
 
 router.get('/getalldata',AddleadsAlldata);
+
+router.get('/deleteuser',DeleteLeadById);
 export default router;

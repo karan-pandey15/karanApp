@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet,Alert ,TextInput} from 'react-native'
+import { View, Text, StyleSheet,Alert ,Image} from 'react-native'
 import React, { useState ,useRef } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -51,7 +51,12 @@ const [phoneNumber,setPhoneNumber] = useState('');
         ref={recapthaVerifier}
         firebaseConfig={firebaseConfig}
      />
+       
         <View style={styles.header}>
+        <Image
+     source={require('../assets/icons/user-removebg-preview.png')} // Use the path to your image
+     style={{ width: 80, height: 80, marginTop:20,marginBottom:20}} // Set the desired width and height
+   />
           <Text style={styles.headerTitle}>Verification</Text>
           <Text style={styles.subHeaderTitle}>Please verify your OTP code.</Text>
         </View>
@@ -86,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingBottom: 4,
+    paddingBottom: 40,
     backgroundColor:'rgb(3,110,140)'
   },
   headerTitle: {

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet,Image} from "react-native";
 import React, { useState, useReducer, useEffect, useCallback } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
@@ -66,6 +66,10 @@ const Edetails = ({ navigation }) => {
       >
         <StatusBar hidden />
         <View style={styles.header}>
+        <Image
+        source={require('../../assets/icons/addrup-removebg-preview.png')} // Use the path to your image
+        style={{ width: 260, height: 80, marginTop:20,marginBottom:20}} // Set the desired width and height
+      />
           <Text style={styles.headerTitle}>Employee Register</Text>
           <Text style={styles.subHeaderTitle}>Give Your Basic Details.</Text>
         </View>
@@ -166,6 +170,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingTop: 20,
+    paddingBottom: 40,
     backgroundColor: "rgb(3,110,140)",
   },
   headerTitle: {

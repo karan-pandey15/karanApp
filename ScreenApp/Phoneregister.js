@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet,TextInput } from 'react-native'
+import { View, Text, StyleSheet,TextInput ,Image  } from 'react-native'
 import React, { useState, useReducer, useEffect, useCallback,useRef } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -78,6 +78,10 @@ const Phoneregister = ({ navigation }) => {
         style={{ flex: 1 }}>
         <StatusBar hidden />
         <View style={styles.header}>
+        <Image
+        source={require('../assets/icons/user-removebg-preview.png')} // Use the path to your image
+        style={{ width: 80, height: 80, marginTop:20,marginBottom:20}} // Set the desired width and height
+      />
           <Text style={styles.headerTitle}>Phone</Text>
           <Text style={styles.subHeaderTitle}>Get Started With Phone.</Text>
         </View>
@@ -131,7 +135,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingBottom: 4,
+    paddingBottom: 40,
     backgroundColor:'rgb(3,110,140)'
   },
   headerTitle: {

@@ -7,7 +7,7 @@ const EmployeeDashboard = ({navigation}) => {
   
 
     const fetchAlldata = async()=>{
-        let data = await fetch("https://1586-2401-4900-1f38-3ef6-8c70-ff90-d08d-6e89.ngrok-free.app/getalldata");
+        let data = await fetch("https://1589-2401-4900-1c5a-9e08-db6-b77b-ffe2-9de9.ngrok-free.app/getalldata");
         result = await data.json();
         setData(result)
     }

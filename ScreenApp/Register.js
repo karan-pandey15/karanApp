@@ -52,7 +52,7 @@
 //   },
 // });
 
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import { View, Text, StyleSheet, TextInput ,Image} from "react-native";
 import React, { useState, useReducer, useEffect, useCallback } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
@@ -84,7 +84,6 @@ const initialState = {
   formIsValid: false,
 };
 const Register = ({ navigation }) => {
-  const { navigate } = navigation;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -128,6 +127,10 @@ const Register = ({ navigation }) => {
       >
         <StatusBar hidden />
         <View style={styles.header}>
+        <Image
+        source={require('../assets/icons/user-removebg-preview.png')} // Use the path to your image
+        style={{ width: 80, height: 80, marginTop:20,marginBottom:20}} // Set the desired width and height
+      />
           <Text style={styles.headerTitle}>Register</Text>
           <Text style={styles.subHeaderTitle}>
             Start With Your Basic Details.
@@ -155,7 +158,7 @@ const Register = ({ navigation }) => {
             <Button
               title="SIGN UP"
               isLoading={isLoading}
-              onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('Home')}
               // onPress={handleFormSubmit}
             />
           </KeyboardAwareScrollView>
@@ -179,7 +182,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
-    paddingBottom: 4,
+    paddingBottom: 40,
     backgroundColor: "rgb(3,110,140)",
   },
   headerTitle: {

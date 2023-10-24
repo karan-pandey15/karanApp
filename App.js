@@ -1,11 +1,8 @@
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
 import { NavigationContainer } from "@react-navigation/native";
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
 import { useCallback } from "react";
 import Phoneregister from "./ScreenApp/Phoneregister";
 import Register from "./ScreenApp/Register";
@@ -20,6 +17,8 @@ import Data from "./ScreenApp/Data";
 import Addmoredetails from "./ScreenApp/screens/Addmoredetails";
 import EmployeeDashboard from "./Dashboard/EmployeeDashboard";
 import Pendingdata from "./ScreenApp/screens/Pendingdata";
+import RateApp from "./ScreenApp/screens/RateApp";
+import BlankPage from "./ScreenApp/screens/BlankPage";
 
 SplashScreen.preventAutoHideAsync();
 const Stack = createNativeStackNavigator();
@@ -141,6 +140,25 @@ export default function App() {
               headerShown: false,
             }}
           />
+
+          <Stack.Screen
+          name="RateApp"
+          component={RateApp}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+        name="BlankPage"
+        component={BlankPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+      
+
+        
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

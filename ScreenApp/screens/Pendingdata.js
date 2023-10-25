@@ -36,7 +36,7 @@ const Pendingdata = () => {
 
   const fetchPendingData = async () => {
     try {
-      let data = await fetch('https://1589-2401-4900-1c5a-9e08-db6-b77b-ffe2-9de9.ngrok-free.app/getalldata');
+      let data = await fetch('https://7e83-2401-4900-1c5a-9e08-1150-92d0-4989-43f2.ngrok-free.app/getalldata');
       let result = await data.json();
       setPendingData(result);
     } catch (error) {
@@ -45,7 +45,7 @@ const Pendingdata = () => {
   };
 
   const deleteUser = async (id)=>{
-    const url = 'https://1589-2401-4900-1c5a-9e08-db6-b77b-ffe2-9de9.ngrok-free.app/deleteuser';
+    const url = 'https://7e83-2401-4900-1c5a-9e08-1150-92d0-4989-43f2.ngrok-free.app/deleteuser';
     console.log(`${url}/${id} it is update`);
     let result = await fetch(`${url}/${id}`,{
       method:"delete", 

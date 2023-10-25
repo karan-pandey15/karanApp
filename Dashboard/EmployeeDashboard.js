@@ -1,19 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet,ScrollView} from 'react-native';
-import Button from '../components/Button';
+// import Button from '../components/Button';
 
 const EmployeeDashboard = ({navigation}) => {
     const [allData,setData] = useState([]);
+    const [approvedData,setApprovedData] = useState([]);
+    const [rejectData,setRejectedData] = useState([])
   
 
     const fetchAlldata = async()=>{
-        let data = await fetch("https://1589-2401-4900-1c5a-9e08-db6-b77b-ffe2-9de9.ngrok-free.app/getalldata");
+        let data = await fetch("https://7e83-2401-4900-1c5a-9e08-1150-92d0-4989-43f2.ngrok-free.app/getalldata");
         result = await data.json();
         setData(result)
     }
 
+    const fetchDisbursaldata = async()=>{
+      let data = await fetch("https://7e83-2401-4900-1c5a-9e08-1150-92d0-4989-43f2.ngrok-free.app/approvedata");
+      result = await data.json();
+      setApprovedData(result)
+  }
+
+  const fetchRejecteddata = async()=>{
+    let data = await fetch("https://7e83-2401-4900-1c5a-9e08-1150-92d0-4989-43f2.ngrok-free.app/rejectdata");
+    result = await data.json();
+    setRejectedData(result)
+}
+
      useEffect(()=>{
         fetchAlldata();
+        fetchDisbursaldata();
+        fetchRejecteddata();
     },[]);
 
   return (
@@ -33,30 +49,41 @@ const EmployeeDashboard = ({navigation}) => {
         </View>
         
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pendingdata')} >
+
         <View style={[styles.container, { backgroundColor: '#FFC107' }]} 
         >
           <Text style={styles.number}>{allData.length}</Text>
           <Text style={styles.text}>Pending leads</Text>
-            {/* Add your arrow icon here */}
+          
             </View>
+
             </TouchableOpacity>
       </View>
+      
+
+      
       <View style={styles.rowContainer}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Disbursaldata')} >
         <View style={[styles.container, { backgroundColor: 'rgb(40,167,69)' }]}>
-          <Text style={styles.number}>{0}</Text>
+          <Text style={styles.number}>{approvedData.length}</Text>
           <Text style={styles.text}>Disbursal leads</Text>
-          <TouchableOpacity style={styles.button}>
-            {/* Add your arrow icon here */}
+          </View>
           </TouchableOpacity>
-        </View>
-        <View style={[styles.container, { backgroundColor: 'rgb(220,53,69)' }]}>
-          <Text style={styles.number}>{0}</Text>
-          <Text style={styles.text}>Rejected leads</Text>
-          <TouchableOpacity style={styles.button}>
-            {/* Add your arrow icon here */}
-          </TouchableOpacity>
-        </View>
-      </View>
+
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Rejecteddata')} >
+            <View style={[styles.container, { backgroundColor: 'rgb(220,53,69)' }]}>
+            <Text style={styles.number}>{rejectData.length}</Text>
+            <Text style={styles.text}>Rejected leads</Text>
+            <TouchableOpacity style={styles.button}>
+              {/* Add your arrow icon here */}
+            </TouchableOpacity>
+          </View>
+            </TouchableOpacity>
+            
+      </View>    
+
+  
+
 
 
       <Text style={styles.Dashboard}>Credit Card</Text>

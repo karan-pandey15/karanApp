@@ -102,7 +102,7 @@ export const employeeFormAllData = (req, res) => {
 
 
 
-// **************** Fetching AddLeads all data from database with this API ************************
+// ****************  Fetching AddLeads all data from database with this API **************** 
 
 
 export const AddleadsAlldata = (req, res) => {
@@ -137,3 +137,119 @@ export const DeleteLeadById = (req, res) => {
     }
   });
 };
+
+
+// ****************  Approved Post Api Code **************** 
+
+
+export const Approveddata =(req,res)=>{
+  const createTable = () => {
+    const createTableSQL = `
+      CREATE TABLE IF NOT EXISTS approveddata (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255),
+        fatherName VARCHAR(255),
+        phoneNo VARCHAR(255),
+        appliedBank VARCHAR(255),
+        panNo VARCHAR(255),
+        companyName VARCHAR(255),
+        additionalInfo1 VARCHAR(255),
+        additionalInfo2 VARCHAR(255)
+      );
+    `;
+  
+    db.query(createTableSQL, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+  };
+
+  
+createTable(); // Call this function to create the table when the server starts
+
+const approvedData = req.body;
+
+  const insertSQL = 'INSERT INTO approveddata SET ?';
+
+  db.query(insertSQL, approvedData, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error inserting data into the database');
+    } else {
+      res.send('Data inserted successfully');
+    }
+});
+
+}
+
+// Fetch Approved data from Backend 
+
+export const fetchApprovedData = async (req,res)=>{
+  db.query("SELECT * FROM approveddata", (err, results) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json(results);
+  });
+}
+
+
+
+// ****************  Reject Post Api Code **************** 
+
+
+export const RejectedData =(req,res)=>{
+  const createTable = () => {
+    const createTableSQL = `
+      CREATE TABLE IF NOT EXISTS rejectdata (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255),
+        fatherName VARCHAR(255),
+        phoneNo VARCHAR(255),
+        appliedBank VARCHAR(255),
+        panNo VARCHAR(255),
+        companyName VARCHAR(255),
+        additionalInfo1 VARCHAR(255),
+        additionalInfo2 VARCHAR(255)
+      );
+    `;
+  
+    db.query(createTableSQL, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+  };
+
+  
+createTable(); // Call this function to create the table when the server starts
+
+const approvedData = req.body;
+
+  const insertSQL = 'INSERT INTO rejectdata SET ?';
+
+  db.query(insertSQL, approvedData, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error inserting data into the database');
+    } else {
+      res.send('Data inserted successfully');
+    }
+});
+
+}
+
+
+// **************** Fetch Rejected data from Backend  **************** 
+
+export const fetchRejectData = async (req,res)=>{
+  db.query("SELECT * FROM rejectdata", (err, results) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json(results);
+  });
+}

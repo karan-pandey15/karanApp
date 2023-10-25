@@ -19,6 +19,8 @@ import EmployeeDashboard from "./Dashboard/EmployeeDashboard";
 import Pendingdata from "./ScreenApp/screens/Pendingdata";
 import RateApp from "./ScreenApp/screens/RateApp";
 import BlankPage from "./ScreenApp/screens/BlankPage";
+import Disbursaldata from "./ScreenApp/Disbursaldata";
+import Rejecteddata from "./ScreenApp/Rejecteddata";
 
 SplashScreen.preventAutoHideAsync();
 const Stack = createNativeStackNavigator();
@@ -142,23 +144,37 @@ export default function App() {
           />
 
           <Stack.Screen
-          name="RateApp"
-          component={RateApp}
-          options={{
-            headerShown: false,
-          }}
-        />
+            name="RateApp"
+            component={RateApp}
+            options={{
+              headerShown: false,
+            }}
+          />
 
-        <Stack.Screen
-        name="BlankPage"
-        component={BlankPage}
-        options={{
-          headerShown: false,
-        }}
-      />
-      
+          <Stack.Screen
+            name="BlankPage"
+            component={BlankPage}
+            options={{
+              headerShown: false,
+            }}
+          />
 
-        
+          <Stack.Screen
+            name="Disbursaldata"
+            component={Disbursaldata}
+            options={{
+              headerShown: false,
+            }}
+          />
+
+    
+          <Stack.Screen
+            name="Rejecteddata"
+            component={Rejecteddata}
+            options={{
+              headerShown: false,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -153,7 +153,7 @@ const fieldsPerPage = 10;
     //   body: JSON.stringify(formData),
     // })
     fetch(
-      "https://1589-2401-4900-1c5a-9e08-db6-b77b-ffe2-9de9.ngrok-free.app/addData",
+      "https://7e83-2401-4900-1c5a-9e08-1150-92d0-4989-43f2.ngrok-free.app/addData",
       {
         method: "POST",
         headers: {

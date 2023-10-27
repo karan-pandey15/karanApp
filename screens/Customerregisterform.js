@@ -1,16 +1,3 @@
-// import React from 'react'
-// import { Text } from 'react-native'
-
-// function Customer() {
-//   return (
-//     <Text>Hello From The Customer Page</Text>
-//   )
-// }
-
-// export default Customer
-
-
-
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useState, useReducer, useEffect, useCallback } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -18,19 +5,11 @@ import { LinearGradient } from 'expo-linear-gradient'
 import * as Animatable from "react-native-animatable"
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { StatusBar } from 'expo-status-bar'
-// import { FONTS, COLORS, SIZES } from '../constants'
-// import Input from '../components/Input'
-// import { validateInput } from '../utils/actions/formActions'
-// import { reducer } from '../utils/reducers/formReducers'
-// import Button from "../components/Button"
-
-import { FONTS, COLORS, SIZES } from '../../constants'
-import Input from '../../components/Input'
-import { reducer } from '../../utils/actions/formActions'
-import Button from "../../components/Button"
-
-
-
+import { FONTS, COLORS, SIZES } from '../constants'
+import Input from '../components/Input'
+import { validateInput } from '../utils/actions/formActions'
+import { reducer } from '../utils/reducers/formReducers'
+import Button from "../components/Button"
 
 const isTestMode = false;
                              
@@ -49,7 +28,7 @@ const initialState = {
   },
   formIsValid: false,
 }
-const Customer = ({ navigation }) => {
+const Customerregisterform = ({ navigation }) => {
   const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [formState, dispatchFormState] = useReducer(reducer, initialState)
@@ -105,7 +84,7 @@ const Customer = ({ navigation }) => {
             <Button
               title="SIGN UP"
               isLoading={isLoading}
-           
+              onPress={() => navigation.navigate('Login')}
             />
           </KeyboardAwareScrollView>
         </Animatable.View>
@@ -146,4 +125,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Customer;
+export default Customerregisterform;
